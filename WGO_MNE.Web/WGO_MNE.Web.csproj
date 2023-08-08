@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WGO_MNE.Logic\WGO_MNE.Logic.csproj" />
+  </ItemGroup>
+
 </Project>

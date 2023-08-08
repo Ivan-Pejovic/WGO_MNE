@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WGO_MNE.Web", "WGO_MNE.Web\WGO_MNE.Web.csproj", "{0B772E5F-8F02-4B1A-9A9E-AE11B841F43C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WGO_MNE.Web", "WGO_MNE.Web\WGO_MNE.Web.csproj", "{0B772E5F-8F02-4B1A-9A9E-AE11B841F43C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WGO_MNE.Logic", "WGO_MNE.Logic\WGO_MNE.Logic.csproj", "{A6DAF629-06E3-423A-A10F-6A0DFD5446E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WGO_MNE.Logic", "WGO_MNE.Logic\WGO_MNE.Logic.csproj", "{A6DAF629-06E3-423A-A10F-6A0DFD5446E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WGO_MNE.Data", "WGO_MNE.Data\WGO_MNE.Data.csproj", "{42D1EE03-FFA3-4624-A8E7-59B853C49986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WGO_MNE.Data", "WGO_MNE.Data\WGO_MNE.Data.csproj", "{42D1EE03-FFA3-4624-A8E7-59B853C49986}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
