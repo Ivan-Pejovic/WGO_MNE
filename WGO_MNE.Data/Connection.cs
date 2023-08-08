@@ -5,7 +5,7 @@ namespace WGO_MNE.Data
     public class Connection
     {
         public MySqlConnection sqlConn;
-        public const string datasourceURL = "Server=IVANP\\SQLEXPRESS;Database=WGO_MNE;Integrated Security=True;TrustServerCertificate=True";
+        public const string datasourceURL = "Server=localhost;Database=wgo_mne;User Id=root;Password=admin;";
 
         public Connection()
         {
