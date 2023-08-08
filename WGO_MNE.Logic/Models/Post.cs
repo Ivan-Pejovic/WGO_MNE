@@ -8,10 +8,11 @@ namespace WGO_MNE.Logic.Models
 {
     public class Post
     {
-        public int Id { get; set; }
-        public User Author { get; set; }
-        public string Text { get; set; }
-        public string Location { get; set; }
-        public DateTime DateCreated { get; set; }
+        public int Id { get; private set; }
+        public User Author { get; private set; }
+        public string Text { get; private set; }
+        public string Location { get; private set; }
+        public DateTime DateCreated { get; private set; }
+        public List<string> Photos { get; private set; }
     }
 }
