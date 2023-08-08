@@ -8,8 +8,8 @@ namespace WGO_MNE.Logic.Models
 {
     public class Country
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Icon { get; set; }
+        public int Id { get; private set; }
+        public string Name { get; private set; }
+        public string Icon { get; private set; }
     }
 }
