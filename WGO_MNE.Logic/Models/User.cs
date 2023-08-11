@@ -16,7 +16,7 @@ namespace WGO_MNE.Logic.Models
         public string Email { private set; get; }
         public string Password { private set; get; }
         public Country Country { private set; get; }
-        public string ProfilePicture { private set; get; }
+        public byte[] ProfilePicture { private set; get; }
 
     }
 }
