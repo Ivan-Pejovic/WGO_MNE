@@ -13,6 +13,7 @@ namespace WGO_MNE.Logic.Models
         public string LastName { private set; get; }
         public string Username { private set; get; }
         public string Biography { private set; get; }
+        public DateOnly DateOfBirth { private set; get; }
         public string Email { private set; get; }
         public string Password { private set; get; }
         public Country Country { private set; get; }
