@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using WGO_MNE.Logic.Interfaces;
-using WGO_MNE.Logic.Models;
+using WGO_MNE.Logic.DTOs;
 
 namespace WGO_MNE.Data.DALs
 {
@@ -13,7 +13,7 @@ namespace WGO_MNE.Data.DALs
             _connection = new Connection();
         }
 
-        public bool Insert(User newUser)
+        public bool Insert(UserDTO newUser)
         {
             bool success = true;
 
@@ -29,7 +29,7 @@ namespace WGO_MNE.Data.DALs
                 cmd.Parameters.AddWithValue("@DATEOFBIRTH", newUser.DateOfBirth);
                 cmd.Parameters.AddWithValue("@EMAIL", newUser.Email);
                 cmd.Parameters.AddWithValue("@PASSWORD", newUser.Password);
-                cmd.Parameters.AddWithValue("@COUNTRYID", newUser.Country.Id);
+                cmd.Parameters.AddWithValue("@COUNTRYID", newUser.CountryId);
                 cmd.Parameters.AddWithValue("@PROFILEPICTURE", newUser.ProfilePicture);
 
                 _connection.Open();
@@ -47,27 +47,52 @@ namespace WGO_MNE.Data.DALs
             return success;
         }
 
-        public List<User> GetAll()
+        public List<UserDTO> GetAll()
+        {
+            List<UserDTO> users = new List<UserDTO>();
+
+            try
+            {
+                string sql = "SELECT Id, FirstName, LastName, Username, Biography, DateOfBirth, Email, Password, CountryId, ProfilePicture FROM wgo_mne.users";
+                MySqlCommand cmd = new MySqlCommand(@sql, _connection.sqlConn);
+
+                _connection.Open();
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    users.Add(new UserDTO(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateOnly.FromDateTime(Convert.ToDateTime(dr[5].ToString())), dr[6].ToString(), dr[7].ToString(), Convert.ToInt32(dr[8]), (byte[])dr[9]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return users;
+        }
+
+        public UserDTO GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public User GetById(int id)
+        public bool Update(UserDTO updatedUser)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(User updatedUser)
+        public bool Delete(UserDTO userToDelete)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(User userToDelete)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User Login(string username, string password)
+        public UserDTO Login(string username, string password)
         {
             throw new NotImplementedException();
         }
