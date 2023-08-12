@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DALs\" />
+    <ProjectReference Include="..\WGO_MNE.Logic\WGO_MNE.Logic.csproj" />
   </ItemGroup>
 
 </Project>
