@@ -5,6 +5,13 @@ namespace WGO_MNE.Data.DALs
 {
     public class UserDAL : IUserDAL
     {
+        private Connection _connection;
+
+        public UserDAL()
+        {
+            _connection = new Connection();
+        }
+
         public bool Insert(User newUser)
         {
             throw new NotImplementedException();
