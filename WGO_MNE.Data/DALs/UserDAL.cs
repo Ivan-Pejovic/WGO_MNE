@@ -1,4 +1,5 @@
-﻿using WGO_MNE.Logic.Interfaces;
+﻿using MySql.Data.MySqlClient;
+using WGO_MNE.Logic.Interfaces;
 using WGO_MNE.Logic.Models;
 
 namespace WGO_MNE.Data.DALs
@@ -14,7 +15,36 @@ namespace WGO_MNE.Data.DALs
 
         public bool Insert(User newUser)
         {
-            throw new NotImplementedException();
+            bool success = true;
+
+            try
+            {
+                string sql = "INSERT INTO wgo_mne.users (FirstName, LastName, Username, Biography, DateOfBirth, Email, Password, CountryId, ProfilePicture) VALUES(@FIRSTNAME, @LASTNAME, @USERNAME, @BIOGRAPHY, @DATEOFBIRTH, @EMAIL, @PASSWORD, @COUNTRYID, @PROFILEPICTURE);";
+                MySqlCommand cmd = new MySqlCommand(sql, _connection.sqlConn);
+
+                cmd.Parameters.AddWithValue("@FIRSTNAME", newUser.FirstName);
+                cmd.Parameters.AddWithValue("@LASTNAME", newUser.LastName);
+                cmd.Parameters.AddWithValue("@USERNAME", newUser.Username);
+                cmd.Parameters.AddWithValue("@BIOGRAPHY", newUser.Biography);
+                cmd.Parameters.AddWithValue("@DATEOFBIRTH", newUser.DateOfBirth);
+                cmd.Parameters.AddWithValue("@EMAIL", newUser.Email);
+                cmd.Parameters.AddWithValue("@PASSWORD", newUser.Password);
+                cmd.Parameters.AddWithValue("@COUNTRYID", newUser.Country.Id);
+                cmd.Parameters.AddWithValue("@PROFILEPICTURE", newUser.ProfilePicture);
+
+                _connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                success = false;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return success;
         }
 
         public List<User> GetAll()
