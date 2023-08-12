@@ -10,4 +10,8 @@
     <ProjectReference Include="..\WGO_MNE.Data\WGO_MNE.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
 </Project>
