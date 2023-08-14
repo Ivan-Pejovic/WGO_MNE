@@ -18,6 +18,32 @@ namespace WGO_MNE.Logic.Models
         public string Password { private set; get; }
         public Country Country { private set; get; }
         public byte[] ProfilePicture { private set; get; }
+        
+        public User(int id, string firstName, string lastName, string username, string biography, DateOnly dateOfBirth, string email, string password, Country country, byte[] profilePicture)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Username = username;
+            Biography = biography;
+            DateOfBirth = dateOfBirth;
+            Email = email;
+            Password = password;
+            Country = country;
+            ProfilePicture = profilePicture;
+        }
 
+        public User(string firstName, string lastName, string username, string biography, DateOnly dateOfBirth, string email, string password, Country country, byte[] profilePicture)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Username = username;
+            Biography = biography;
+            DateOfBirth = dateOfBirth;
+            Email = email;
+            Password = password;
+            Country = country;
+            ProfilePicture = profilePicture;
+        }
     }
 }
