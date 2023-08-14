@@ -96,5 +96,15 @@ namespace WGO_MNE.Data.DALs
         {
             throw new NotImplementedException();
         }
+
+        public bool CheckIfEmailExists(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckIfUsernameExists(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace WGO_MNE.Logic.Interfaces
         public bool Update(UserDTO updatedUser);
         public bool Delete(UserDTO userToDelete);
         public UserDTO Login(string username, string password);
+        public bool CheckIfEmailExists(string email);
+        public bool CheckIfUsernameExists(string username);
     }
 }
