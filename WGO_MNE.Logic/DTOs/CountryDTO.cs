@@ -10,17 +10,16 @@ namespace WGO_MNE.Logic.DTOs
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
-        public string Icon { get; private set; }
+        public byte[] Icon { get; private set; }
     
-        public CountryDTO(int id, string name, string icon
-            )
+        public CountryDTO(int id, string name, byte[] icon)
         {
             Id = id;
             Name = name;
             Icon = icon;
         }
 
-        public CountryDTO(string name, string icon)
+        public CountryDTO(string name, byte[] icon)
         {
             Name = name;
             Icon = icon;
