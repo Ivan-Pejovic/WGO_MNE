@@ -10,6 +10,19 @@ namespace WGO_MNE.Logic.Models
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
-        public string Icon { get; private set; }
+        public byte[] Icon { get; private set; }
+
+        public Country(int id, string name, byte[] icon)
+        {
+            Id = id;
+            Name = name;
+            Icon = icon;
+        }
+
+        public Country(string name, byte[] icon)
+        {
+            Name = name;
+            Icon = icon;
+        }
     }
 }
