@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,29 @@ namespace WGO_MNE.Data.DALs
 
         public bool Insert(CountryDTO newCountry)
         {
-            throw new NotImplementedException();
+            bool success = true;
+
+            try
+            {
+                string sql = "INSERT INTO wgo_mne.countries (Name, Icon) VALUES(@NAME, @ICON);";
+                MySqlCommand cmd = new MySqlCommand(sql, _connection.sqlConn);
+
+                cmd.Parameters.AddWithValue("@NAME", newCountry.Name);
+                cmd.Parameters.AddWithValue("@ICON", newCountry.Icon);
+
+                _connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                success = false;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return success;
         }
 
         public List<CountryDTO> GetAll()
