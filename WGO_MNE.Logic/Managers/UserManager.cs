@@ -31,27 +31,27 @@ namespace WGO_MNE.Logic.Managers
             return iUserDAL.Insert(UserMapper.ToDTO(newUser));
         }
 
-        public List<UserDTO> GetAll()
+        public List<User> GetAll()
         {
             return iUserDAL.GetAll();
         }
 
-        public UserDTO GetById(int id)
+        public User GetById(int id)
         {
             return iUserDAL.GetById(id);
         }
 
-        public bool Update(UserDTO updatedUser)
+        public bool Update(User updatedUser)
         {
             return iUserDAL.Update(updatedUser);
         }
 
-        public bool Delete(UserDTO userToDelete)
+        public bool Delete(User userToDelete)
         {
             return iUserDAL.Delete(userToDelete);
         }
 
-        public UserDTO Login(string username, string password)
+        public User Login(string username, string password)
         {
             return iUserDAL.Login(username, password);
         }
