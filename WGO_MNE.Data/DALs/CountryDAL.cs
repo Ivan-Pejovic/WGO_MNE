@@ -47,7 +47,32 @@ namespace WGO_MNE.Data.DALs
 
         public List<CountryDTO> GetAll()
         {
-            throw new NotImplementedException();
+            List<CountryDTO> countries = new List<CountryDTO>();
+
+            try
+            {
+                string sql = "SELECT Id, Name, Icon FROM wgo_mne.countries";
+                MySqlCommand cmd = new MySqlCommand(@sql, _connection.sqlConn);
+
+                _connection.Open();
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    countries.Add(new CountryDTO(Convert.ToInt32(dr[0]), dr[1].ToString(), (byte[])dr[2]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return countries;
         }
 
         public CountryDTO GetById(int id)
