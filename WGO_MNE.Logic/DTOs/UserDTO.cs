@@ -33,5 +33,18 @@ namespace WGO_MNE.Logic.DTOs
             CountryId = countryId;
             ProfilePicture = profilePicture;
         }
+
+        public UserDTO(string firstName, string lastName, string username, string biography, DateOnly dateOfBirth, string email, string password, int countryId, byte[] profilePicture)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Username = username;
+            Biography = biography;
+            DateOfBirth = dateOfBirth;
+            Email = email;
+            Password = password;
+            CountryId = countryId;
+            ProfilePicture = profilePicture;
+        }
     }
 }
