@@ -10,10 +10,12 @@ namespace WGO_MNE.Logic.Managers
     public class UserManager
     {
         private IUserDAL iUserDAL;
+        private ICountryDAL iCountryDAL;
 
-        public UserManager(IUserDAL dal)
+        public UserManager(IUserDAL userDal, ICountryDAL countryDAL)
         {
-            iUserDAL = dal;
+            iUserDAL = userDal;
+            iCountryDAL = countryDAL;
         }
 
         public bool Insert(User newUser)
@@ -33,7 +35,23 @@ namespace WGO_MNE.Logic.Managers
 
         public List<User> GetAll()
         {
-            return iUserDAL.GetAll();
+            List<UserDTO> usersInDb = iUserDAL.GetAll();
+            List<CountryDTO> countriesInDb = iCountryDAL.GetAll();
+
+            List<Country> countries = new List<Country>();
+            List<User> users = new List<User>();
+
+            foreach(CountryDTO country in countriesInDb)
+            {
+                countries.Add(CountryMapper.ToModel(country));
+            }
+
+            foreach (UserDTO user in usersInDb)
+            {
+                users.Add(UserMapper.ToModel(user, countries));
+            }
+
+            return users;
         }
 
         public User GetById(int id)
